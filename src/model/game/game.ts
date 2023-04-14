@@ -17,9 +17,7 @@ export class Game extends Engine {
 
 
     async create() {
-
         KeybordController.startKeybordListner();
-
     }
 
     update(): void {

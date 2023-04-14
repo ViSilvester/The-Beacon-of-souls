@@ -38,7 +38,24 @@ export class EzIO {
                 request.onload = () => __awaiter(this, void 0, void 0, function* () {
                     if (request.status == 200) {
                         resolve(request.response);
-                        console.log(request.response);
+                    }
+                    else {
+                        reject();
+                    }
+                });
+            });
+        });
+    }
+    static loadJsonFromUrl(url) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return new Promise((resolve, reject) => {
+                var request = new XMLHttpRequest();
+                request.responseType = "json";
+                request.open("GET", url, true);
+                request.send();
+                request.onload = () => __awaiter(this, void 0, void 0, function* () {
+                    if (request.status == 200) {
+                        resolve(request.response);
                     }
                     else {
                         reject();

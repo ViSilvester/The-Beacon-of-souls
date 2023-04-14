@@ -23,7 +23,7 @@ export class Player extends Entity {
     }
     create() {
         return __awaiter(this, void 0, void 0, function* () {
-            this.spriteSheet = yield EzIO.loadImageFromUrl("../../../../assets/spritesheet.png");
+            this.spriteSheet = yield EzIO.loadImageFromUrl('./assets/spritesheet.png');
         });
     }
     update(engine) {

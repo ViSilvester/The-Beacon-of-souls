@@ -33,7 +33,6 @@ export class EzIO {
                 request.onload = async () => {
                     if (request.status == 200) {
                         resolve(request.response);
-                        console.log(request.response)
                     }
                     else {
                         reject();
@@ -42,4 +41,25 @@ export class EzIO {
             }
         );
     }
+
+    static async loadJsonFromUrl(url: string): Promise<any> {
+
+        return new Promise<ArrayBuffer>(
+            (resolve, reject) => {
+                var request = new XMLHttpRequest();
+                request.responseType = "json";
+                request.open("GET", url, true);
+                request.send();
+                request.onload = async () => {
+                    if (request.status == 200) {
+                        resolve(request.response);
+                    }
+                    else {
+                        reject();
+                    }
+                }
+            }
+        );
+    }
+
 }
